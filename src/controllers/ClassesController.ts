@@ -31,7 +31,7 @@ export default class ClassesController {
           .from("class_schedule")
           .whereRaw("`class_schedule`.`class_id` = `classes`.`id`")
           .whereRaw("`class_schedule`.`week_day`= ??", [Number(week_day)])
-          .whereRaw("`class_schedule`.`from`<=??", [timeInMinutes])
+          .whereRaw("`class_schedule`.`from` <= ??", [timeInMinutes])
           .whereRaw("`class_schedule`.`to` > ??", [timeInMinutes])
       })
       .where("classes.subject", "=", subject)
@@ -49,13 +49,13 @@ export default class ClassesController {
       bio,
       subject,
       cost,
-      schedule,
+      schedule
     } = request.body;
 
     const trx = await db.transaction();
 
     try {
-      const insertedUsersIds = await trx("users").insert({
+      const insertedUsersIds = await trx('users').insert({
         name,
         avatar,
         whatsapp,
@@ -63,34 +63,36 @@ export default class ClassesController {
       });
       const user_id = insertedUsersIds[0];
 
-      const insertedClassesIds = await trx("classes").insert({
+      const insertedClassesIds = await trx('classes').insert({
         subject,
         cost,
         user_id,
       });
       const class_id = insertedClassesIds[0];
 
-      const class_schedule = schedule.map((scheduleItem: ScheduleItem) => {
+      const classSchedule = schedule.map((scheduleItem: ScheduleItem) => {
         return {
           class_id,
           week_day: scheduleItem.week_day,
           from: convertHourToMinutes(scheduleItem.from),
           to: convertHourToMinutes(scheduleItem.to),
         };
-      });
+      })
 
-      await trx("class_schedule").insert(class_schedule);
+      await trx("class_schedule").insert(classSchedule);
 
       await trx.commit();
 
-      return response.status(201).send("Created With Success");
-    } catch (err) {
+      return response.status(201).send('Created with sucess');
+    }catch (err) {
+
       console.log(err);
       
       await trx.rollback();
+
       return response
         .status(400)
-        .json({ error: "Unexpected error while creating new class" });
+        .json({ error: 'Unexpected error while creating new class' });
     }
   }
 }

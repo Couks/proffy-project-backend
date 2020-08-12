@@ -13,7 +13,7 @@ export default class ConnectionController {
   async create(request: Request, response: Response) {
     const { user_id } = request.body;
 
-    await db('connection').insert({
+    await db('connections').insert({
       user_id,
     });
 
