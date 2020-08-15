@@ -1,12 +1,11 @@
-# Funcionalidades
+## **Proffy Mobile**
+#### Proffy is a project developed based on the national day of Education professionals that takes place on August 6th. The goal is to create an application where you can find private tutors and connect with them.
 
-## Conexões
+### Technologies:
+#### This project was developed with the following technologies:
 
-- Rota para listar o total de conexões realizadas;
-- Rota para criar uma nova conexão
-## Aulas
-
-- Rota para criar uma aula
-- Rota para listar aulas;
-  - Filtrar por matérias, dia da semana e horário.
-rrr
+#### .Node.js
+#### .TypeScript
+#### .React
+#### .React Native
+#### .Expo
