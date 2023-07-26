@@ -1,4 +1,4 @@
-# Projeto "Proffy Project Backend"
+# Projeto
 
 ## Descrição
 
@@ -23,10 +23,6 @@ O backend é responsável por gerenciar e armazenar dados essenciais para o func
 - Knex.js: Um query builder SQL para Node.js que facilita a interação com o banco de dados.
 - SQLite: Banco de dados leve e de fácil implementação, escolhido para armazenar os dados do sistema.
 - TypeScript: Uma extensão do JavaScript que adiciona tipos ao código, tornando-o mais robusto e legível.
-
-## Repositório
-
-O código-fonte do projeto "Proffy Project Backend" está disponível em [Couks/proffy-project-backend](https://github.com/Couks/proffy-project-backend). O repositório contém todo o código fonte do backend, incluindo as configurações necessárias para executar a aplicação localmente e os scripts de migração do banco de dados.
 
 ## Observações
 
